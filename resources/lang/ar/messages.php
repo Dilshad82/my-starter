@@ -14,4 +14,9 @@ return [
 
     "hello gus"  => 'اهلا بكم' ,
     "welcome"  => 'اهلا ' ,
+    'offer name required' => 'اسم العرض مطلوب' ,
+    'offer name unique' => 'اسم العرض بجب ان لايتكرر' ,
+    'offer price required'  => 'سعر العرض مطلوب' ,
+    'offer price numeric'  => 'سعر العرض يجب ان يكون ارقام' ,
+    'offer details required'  => 'تفصيل العرض مطلوب' ,
 ];

@@ -12,6 +12,12 @@ return [
     |
     */
 
-    "hello gus"  => 'Hello' ,
-    "welcome"  => 'Welcome ' ,
+    "hello gus"       => 'Hello' ,
+    "welcome"           => 'Welcome ' ,
+    'offer name required' => 'Offer Name Required' ,
+    'offer name unique'     =>  'Offer Name Must Be Unique'  ,
+    'offer price required'    => 'Offer Price Required' ,
+    'offer price numeric'       => 'Offer Price Numeric'  ,
+    'offer details required'     => 'Offer Details Required' ,
+
 ];

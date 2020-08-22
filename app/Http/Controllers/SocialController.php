@@ -20,5 +20,8 @@ class SocialController extends Controller
      //  في الموقع من الفيس بوك 
      
        return $user = Socialite::with($service)->user();
+
+      //  $user = Socialite::driver($service) ->stateless()-> user() ;
+      //  return response() -> json($user);
     }
 }
