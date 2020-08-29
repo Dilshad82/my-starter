@@ -16,7 +16,7 @@ return [
     "welcome"           => 'Welcome ' ,
 
     'offer name required' => 'Offer Name Required' ,
-    'offer name unique'     =>  'Offer Name Must Be Unique'  ,
+    'offer name unique'     =>  'Offer Name is exists'  ,
     'offer price required'    => 'Offer Price Required' ,
     'offer price numeric'       => 'Offer Price Numeric'  ,
     'offer details required'     => 'Offer Details Required' ,
@@ -30,6 +30,14 @@ return [
     'Offer details ar'  => 'Arabic Offer Details' ,
     'Offer details en'  => 'English Offer Details' ,
     'Offer details'    => 'Offer details' ,
+    'Offer image'      => 'Choose a display image' ,
+    'image'            =>  'Offer Image' ,
+
+    'operation'   => 'Operation' ,
+    'edit'        => 'Edit' ,
+    'Edit offer'  => 'Edit Offer' ,
+    'Update Offer'=>  'Update Offer' ,
+
 
     'name'  => ' Name' ,
     'price'  => ' Price' ,

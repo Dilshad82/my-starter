@@ -16,7 +16,7 @@ return [
     "welcome"  => 'اهلا ' ,
 
     'offer name required' => 'اسم العرض مطلوب' ,
-    'offer name unique' => 'اسم العرض بجب ان لايتكرر' ,
+    'offer name unique' => 'اسم العرض موجود' ,
     'offer price required'  => 'سعر العرض مطلوب' ,
     'offer price numeric'  => 'سعر العرض يجب ان يكون ارقام' ,
     'offer details required'  => 'تفصيل العرض مطلوب' ,
@@ -30,6 +30,13 @@ return [
     'Offer details ar'  => 'تفصيل العرض بالعربي' ,
     'Offer details en'  => 'تفصيل العرض بالانكليزي' ,
     'Offer details'  => 'تفصيل العرض ' ,
+    'Offer image'    => 'أختر صوره العرض' ,
+    'image'          => 'صورة العرض' ,
+
+    'operation'   => 'العمليات' ,
+    'edit'        => 'تعديل' ,
+    'Edit offer'  => 'تعديل العرض' ,
+    'Update Offer'=>  'تحديث العرض' ,
 
 
     'name'  => ' الاسم' ,

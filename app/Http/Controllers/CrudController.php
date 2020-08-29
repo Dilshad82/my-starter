@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
+use LaravelLocalization;
+use App\Traits \OfferTrait;
 use Illuminate\Http\Request;
 use App\Http\Requests\OfferRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use LaravelLocalization;
 
 class CrudController extends Controller
 {
+    use OfferTrait ;
+
     public function getOffers()
     {   // اجلب لي جميع الاعمدة 
         return Offer::select('id' , 'name')->get();
@@ -42,8 +45,14 @@ class CrudController extends Controller
         //     return  redirect()->back()->withErrors($validator) -> withInput($request->all());
         // }
 
+
+         // save photo in folder ==> public\images\offers حفظ الصورة في الفولدر
+        // saveImage => Traits/OfferTrait هذا الدالة موجود في فولدر خارح الكونترول نستداعها عندما نحتاج
+        $file_name = $this -> saveImage($request -> photo , 'images/offers');
+
         // insert 
         Offer::create([
+            'photo' => $file_name ,
             'name_ar' => $request-> name_ar ,
             'name_en' => $request-> name_en ,
             'price' => $request-> price ,
@@ -53,6 +62,7 @@ class CrudController extends Controller
 
         return  redirect()->back()->with(['success' => 'تم اضافة العرض بنجاح']);
     }
+    
 
     // protected function getMessages(){
 
@@ -77,13 +87,49 @@ class CrudController extends Controller
     public function getAllOffers()
     { // $offers == return collection 
        $offers = Offer::select(
-                          'id' , 
+                          'id'    , 
                           'price' , 
+                          'photo' ,
                           'name_'.LaravelLocalization::getCurrentLocale().' as name' ,
                           'details_'.LaravelLocalization::getCurrentLocale().' as details' ,
                                  ) -> get();
 
        return view('offers.all' , compact('offers'));
+    }
+
+    public function editOffer($offer_id){
+
+        //Offer::findOrFail($offer_id) ;
+
+        $offer = Offer::find($offer_id) ; // search in given table id only 
+        if(!$offer)
+            return redirect() ->back();
+        
+        $offer = Offer::select('id', 'name_ar', 'name_en', 'details_ar', 'details_en', 'price')->find($offer_id);
+
+        return view('offers.edit', compact('offer'));
+
+    }
+
+    public function updateOffer(OfferRequest $request , $offer_id){
+ 
+        // validtion 
+
+        // chek if offer exists
+        $offer = Offer::find($offer_id);
+        if(!$offer)
+               return redirect() -> back();
+        
+        // update data
+        $offer -> update($request -> all());
+        return redirect()->back()->with(['success' => ' تم التحديث بنجاح ']);
+
+        /*  $offer->update([
+              'name_ar' => $request->name_ar,
+              'name_en' => $request->name_en,
+              'price' => $request->price,
+          ]);*/
+        
     }
    
 }
