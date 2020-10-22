@@ -100,6 +100,18 @@
     </div>
 </nav>
 
+@if(Session::has('succes'))
+   <div class="alert alert-success">
+          {{ Session::get('succes')}}
+   </div>
+@endif
+
+@if(Session::has('error'))
+   <div class="alert alert-danger">  
+          {{ Session::get('error')}}
+   </div>
+@endif
+
 <table class="table">
     <thead>
     <tr>
@@ -123,6 +135,7 @@
             <td><img  style="width: 90px; height: 90px;" src="{{asset('images/offers/'.$offer->photo)}}"></td>
             <td>
                 <a href="{{url('offers/edit/'.$offer -> id)}}" class="btn btn-success"> {{__('messages.edit')}}</a>
+                <a href="{{route('offers.delete' , $offer -> id)}}" class="btn btn-danger"> {{__('messages.delete')}}</a>
             </td>
             
         </tr>

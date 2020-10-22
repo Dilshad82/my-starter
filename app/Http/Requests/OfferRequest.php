@@ -34,14 +34,27 @@ class OfferRequest extends FormRequest
 
     public function messages(){
 
+        // return [
+        //             'name_ar.required' =>  __('messages.offer name required')  ,
+        //             'name_en.required' =>  __('messages.offer name required')  ,
+        //             'name_ar.unique'    => __('messages.offer name unique')     ,
+        //             'name_en.unique'    => __('messages.offer name unique')     ,
+        //             'price.required'  => __('messages.offer price required')  ,
+        //             'price.numeric'    => __('messages.offer price numeric')   ,
+        //             'details.required'  => __('messages.offer details required') ,
+        //         ];
         return [
-                    'name_ar.required' =>  __('messages.offer name required')  ,
-                    'name_en.required' =>  __('messages.offer name required')  ,
-                    'name_ar.unique'    => __('messages.offer name unique')     ,
-                    'name_en.unique'    => __('messages.offer name unique')     ,
-                    'price.required'  => __('messages.offer price required')  ,
-                    'price.numeric'    => __('messages.offer price numeric')   ,
-                    'details.required'  => __('messages.offer details required') ,
-                ];
+                    'name_ar.required' => __('messages.offer name required'),
+                    'name_en.required' => __('messages.offer name required'),
+                    'name_ar.unique' => 'اسم العرض موجود ',
+                    'name_en.unique' => 'Offer name  is exists ',
+                    'price.numeric' => 'سعر العرض يجب ان يكون ارقام',
+                    'price.required' => 'السعر مطلوب',
+                    'details_ar.required' => 'ألتفاصيل مطلوبة ',
+                    'details_en.required' => 'ألتفاصيل مطلوبة ',
+                    'photo.required' =>  'صوره العرض مطلوب',
+                    'photo.mimes' =>  'صوره غير صالحة',
+        
+        ];
     }
 }

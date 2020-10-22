@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'mobile' , 'expire' , 
+        'name', 'email', 'password', 'mobile' , 'expire' , 'age' ,
     ];
 
     /**
@@ -36,4 +36,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+      //user_id نقوم بايضافتها فقط عندما يكون مكتوب بطريقة غير صحيحة
+     // id طريقة الارافيل === نكتب الاسم الاول من الجدول  بعد ذلك _ ثم نكتب ال 
+    // user_id === هذه الطريقة صحيحة لكن قومنا بكتبتها فقط لي توضيح   
+    ################## Begin relations ############
+    public function  phone(){
+        return $this ->  hasOne('App\Models\Phone','user_id');
+    }
+    ################## End relations ############
 }

@@ -32,11 +32,16 @@ return [
     'Offer details'  => 'تفصيل العرض ' ,
     'Offer image'    => 'أختر صوره العرض' ,
     'image'          => 'صورة العرض' ,
+    'delete'         => 'حذف'   ,
+    'offer not exists' => 'العرض غير موجود' ,
+    'successfully updated'     =>  'تم التحديث بنجاح' ,
+    'offer deleted successfully' => 'تم حذف العرض بنجاح' ,
 
     'operation'   => 'العمليات' ,
     'edit'        => 'تعديل' ,
     'Edit offer'  => 'تعديل العرض' ,
     'Update Offer'=>  'تحديث العرض' ,
+    'Add your offer' => 'اضافة العرض الخاص بك' ,
 
 
     'name'  => ' الاسم' ,

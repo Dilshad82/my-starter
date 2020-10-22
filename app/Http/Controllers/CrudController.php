@@ -60,7 +60,7 @@ class CrudController extends Controller
             'details_en' => $request-> details_en ,
         ]);
 
-        return  redirect()->back()->with(['success' => 'تم اضافة العرض بنجاح']);
+        return  redirect()->route('offers.all')->with(['success' => 'تم اضافة العرض بنجاح']);
     }
     
 
@@ -111,18 +111,36 @@ class CrudController extends Controller
 
     }
 
+    public function delete($offer_id)
+    {
+        //check if offer id exists
+
+        $offer = Offer::find($offer_id);   // Offer::where('id','$offer_id') -> first();
+
+        if (!$offer)
+            return redirect()->back()->with(['error' => __('messages.offer not exist')]);
+
+        $offer->delete();
+
+        return redirect()
+            ->route('offers.all')
+            ->with(['success' => __('messages.offer deleted successfully')]);
+
+    }
+
     public function updateOffer(OfferRequest $request , $offer_id){
  
         // validtion 
 
         // chek if offer exists
         $offer = Offer::find($offer_id);
-        if(!$offer)
-               return redirect() -> back();
+        if (!$offer)
+            return redirect()->back();
+        
         
         // update data
-        $offer -> update($request -> all());
-        return redirect()->back()->with(['success' => ' تم التحديث بنجاح ']);
+        $offer->update($request->all());
+        return redirect()->route('offers.all')->with(['success' => 'messages.successfully updated']);
 
         /*  $offer->update([
               'name_ar' => $request->name_ar,

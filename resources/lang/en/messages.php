@@ -32,11 +32,16 @@ return [
     'Offer details'    => 'Offer details' ,
     'Offer image'      => 'Choose a display image' ,
     'image'            =>  'Offer Image' ,
+    'delete'           =>  'Delete'  ,
+    'offer not exists' =>  'Offer Not Exists' , 
+    'successfully updated'  => 'Successfully Updated' ,
+    'offer deleted successfully' => 'Offer Deleted Successfully' ,
 
     'operation'   => 'Operation' ,
     'edit'        => 'Edit' ,
     'Edit offer'  => 'Edit Offer' ,
     'Update Offer'=>  'Update Offer' ,
+    'Add your offer' => 'Add Your offer' ,
 
 
     'name'  => ' Name' ,
