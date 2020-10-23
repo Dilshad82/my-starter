@@ -1,6 +1,7 @@
 <?php
 
 
+define('PAGINATION_COUNT' , 2);
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::get('delete/{offer_id}' , 'CrudController@delete')->name('offers.delete');
 
         Route::get('all', 'CrudController@getAllOffers')->name('offers.all');
+
+        Route::get('get-all-inactive-offer', 'CrudController@getAllInactiveOffers');
     });
 });
 

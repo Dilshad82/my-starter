@@ -86,15 +86,25 @@ class CrudController extends Controller
 
     public function getAllOffers()
     { // $offers == return collection 
-       $offers = Offer::select(
-                          'id'    , 
-                          'price' , 
-                          'photo' ,
-                          'name_'.LaravelLocalization::getCurrentLocale().' as name' ,
-                          'details_'.LaravelLocalization::getCurrentLocale().' as details' ,
-                                 ) -> get();
+    //    $offers = Offer::select(
+    //                       'id'    , 
+    //                       'price' , 
+    //                       'photo' ,
+    //                       'name_'.LaravelLocalization::getCurrentLocale().' as name' ,
+    //                       'details_'.LaravelLocalization::getCurrentLocale().' as details' ,
+    //                              ) -> get();
 
-       return view('offers.all' , compact('offers'));
+    // return view('offers.all' , compact('offers'));
+    ##################### Paginate result #############################
+        $offers = Offer::select(
+            'id'    , 
+            'price' , 
+            'photo' ,
+            'name_'.LaravelLocalization::getCurrentLocale().' as name' ,
+            'details_'.LaravelLocalization::getCurrentLocale().' as details' ,
+        ) -> paginate(PAGINATION_COUNT);
+
+        return view ('offers.paginations' , compact('offers'));
     }
 
     public function editOffer($offer_id){
@@ -149,5 +159,19 @@ class CrudController extends Controller
           ]);*/
         
     }
-   
+    ############################ Scopes ###########################
+    public function getAllInactiveOffers(){
+
+       // where  , whereNull , whereNotNull , whereIn 
+      //  Offer::whereNotNull('details_ar') -> get();
+
+      // all inactive offers 
+     //   return $inactiveOffers = Offer::where('status' , '=' , 0) -> get();
+
+      //scope
+    //   return $inactiveOffers = Offer::inactive()-> get();
+
+      return $inactiveOffers = Offer::invalid()-> get();
+    }
+   ######################### Scopes #################################
 }

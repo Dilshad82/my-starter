@@ -11,11 +11,23 @@ class Offer extends Model
   // fillable ==>   هذه العناصر  المسموح التعامل مع قاعدة البيانات 
   // عندما نريد التعامل مع اي من هذه العناصر الموجود في قاعدة لا تستطيع 
   //fillable التعامل معها اذا لم تكون موجود في ال 
-    protected $fillable = ['name_ar' , 'name_en' , 'photo' , 'price' , 'details_ar' , 'details_en' , 'created_at' , 'updated_at'] ;
+    protected $fillable = ['name_ar' , 'name_en' , 'photo' , 'price' , 'details_ar' , 'details_en' , 'status' , 'created_at' , 'updated_at'] ;
 
  //  hidden عكس fillable 
     protected $hidden   = ['created_at' , 'updated_at'] ;
 
   // databace الي قاعدة البيانات  created_at و updated_at  هذا الامر اذا كن لا نريد اضافة ال 
   // public $timestamps = false ;
+
+  ########################## Local Scopes ####################################
+  public function scopeInactive($query){
+
+     return  $query -> where('status' , '=' , 0);
+  }
+  
+  public function scopeInvalid($query){
+
+    return  $query -> where('status' , '=' , 0)->whereNull('details_ar');
+  ########################## Local Scopes ####################################
+ }
 }
